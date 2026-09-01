@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+     <bean id="desing" class="com.p1.demo.DesigleEngine" scope="sigleton | prototye  | request | session" /> 
+      <bean id="patrol" class="com.p1.demo.PatrolEngine" /> 
+     <bean id="car" class="com.p1.demo.Car" >
+    <!--<property name="eng" ref="desing" />-->
+     <!-- <constructor-arg ref="desing"/>-->
+     </bean>    
+
+</beans>
+
+

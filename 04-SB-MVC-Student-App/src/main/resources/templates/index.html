@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Student Management</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Student Management System</h1>
+
+    <div class="top-bar">
+
+        <a href="/student/add" class="btn">
+            Add Student
+        </a>
+
+
+    </div>
+
+
+    <table border="black">
+
+        <thead>
+
+        <tr>
+
+            <th>ID</th>
+            <th>Name</th>
+            <th>Course</th>
+            <th>City</th>
+            <th>Action</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        <tr th:each="student : ${students}">
+
+            <td th:text="${student.id}"></td>
+
+            <td th:text="${student.name}"></td>
+
+            <td th:text="${student.course}"></td>
+
+            <td th:text="${student.city}"></td>
+
+           
+
+        </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+
+</html>
