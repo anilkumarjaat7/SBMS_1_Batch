@@ -1,12 +1,21 @@
 package com.anil.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.anil.entity.Student;
 
 @Repository
-public interface StudentRepository extends CrudRepository<Student, Integer> {
+public interface StudentRepository extends JpaRepository<Student, Integer> {
+	
+	public List<Student> findByName(String name);
+	
+	public List<Student> findByEmail(String email);
+	
+	public List<Student> findByPhone(String phone);
+	
 
 }
 
@@ -15,7 +24,7 @@ public interface StudentRepository extends CrudRepository<Student, Integer> {
 //1) CrudRepository ( I )
 //2) JpaRepository ( I )
 
-//JpaRepository ( I ) =  CrudRepository (I) + pageination + sorting + findBy + CustomQuery
+//JpaRepository ( I ) =  CrudRepository (I) + pageination + sorting + findByXX + CustomQuery
 
 
 
