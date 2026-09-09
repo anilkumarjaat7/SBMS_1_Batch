@@ -34,6 +34,7 @@ Optional<User>	findByEmailAndName(String name,String email);
 	@Query(value ="SELECT * FROM USERS   where name = :name" , nativeQuery = true)
 	List<User> searchByName(@Param("name") String name);
 	
+	
 	@Query("UPDATE User u SET u.age = :age where u.id = :id")
 	int updateAge(@Param("id") Integer id, @Param("age") Integer age);
 
