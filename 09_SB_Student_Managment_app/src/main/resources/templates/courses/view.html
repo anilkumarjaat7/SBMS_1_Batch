@@ -1,0 +1,82 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title th:text="${course.title}">Course</title>
+
+    <link rel="stylesheet" th:href="@{/css/course.css}" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="course-details course-view">
+        <a th:href="@{/courses}" class="back-link">&#8592; Back to courses</a>
+
+        <div class="course-hero">
+          <div class="course-hero-copy">
+            <p class="eyebrow">Featured learning programme</p>
+            <h1 th:text="${course.title}"></h1>
+            <p class="course-name" th:text="${course.name}"></p>
+            <p class="course-lead" th:text="${course.shortDescription}"></p>
+            <div class="course-info">
+              <div class="info-box">
+                <span>Course fee</span>
+                <strong
+                  th:text="${course.fee != null ? '₹ ' + course.fee : 'Contact us'}"
+                ></strong>
+              </div>
+              <div class="info-box">
+                <span>Duration</span>
+                <strong
+                  th:text="${course.duration != null ? course.duration : 'Flexible'}"
+                ></strong>
+              </div>
+            </div>
+          </div>
+          <img
+            th:if="${course.bannerImg != null}"
+            th:src="${course.bannerImg}"
+            class="course-banner"
+            alt="Course banner"
+          />
+        </div>
+
+        <section class="course-section">
+          <p class="section-kicker">About this course</p>
+          <p class="course-description" th:text="${course.description}"></p>
+        </section>
+
+        <div class="course-content-grid">
+          <section class="course-section">
+            <p class="section-kicker">Course highlights</p>
+            <pre th:text="${course.highlights}"></pre>
+          </section>
+          <section class="course-section">
+            <p class="section-kicker">Curriculum</p>
+            <pre th:text="${course.courseCurriculum}"></pre>
+          </section>
+        </div>
+
+        <div class="course-footer">
+          <div>
+            <p class="section-kicker">Ready to start?</p>
+            <p class="footer-copy">
+              Download the complete course material and begin learning.
+            </p>
+          </div>
+          <a
+            th:if="${course.courseContent != null}"
+            th:href="${course.courseContent}"
+            target="_blank"
+            class="btn btn-primary"
+            >Open course PDF</a
+          >
+        </div>
+
+        <a th:href="@{/courses}" class="btn btn-secondary">Back to courses</a>
+      </div>
+    </div>
+  </body>
+</html>

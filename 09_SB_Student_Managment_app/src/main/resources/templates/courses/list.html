@@ -1,0 +1,101 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Courses</title>
+
+    <link rel="stylesheet" th:href="@{/css/course.css}" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="page-header">
+        <div>
+          <p class="eyebrow">Learning centre</p>
+          <h1>Course Management</h1>
+          <p class="page-subtitle">
+            Create, review and organise your coaching catalogue.
+          </p>
+        </div>
+
+        <a th:href="@{/courses/new}" class="btn btn-primary"> Add Course </a>
+      </div>
+
+      <table class="course-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Course</th>
+            <th>Title</th>
+            <th>Fee</th>
+            <th>Duration</th>
+            <th>Image</th>
+            <th>PDF</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr th:each="course : ${courses}">
+            <td th:text="${course.id}"></td>
+
+            <td th:text="${course.name}"></td>
+
+            <td th:text="${course.title}"></td>
+
+            <td th:text="${course.fee}"></td>
+
+            <td th:text="${course.duration}"></td>
+
+            <td>
+              <img
+                th:if="${course.cardImg != null}"
+                th:src="${course.cardImg}"
+                class="course-image"
+              />
+            </td>
+
+            <td>
+              <a
+                th:if="${course.courseContent != null}"
+                th:href="${course.courseContent}"
+                target="_blank"
+                class="btn btn-secondary"
+              >
+                PDF
+              </a>
+            </td>
+
+            <td>
+              <div class="actions">
+                <a
+                  th:href="@{/courses/{id}(id=${course.id})}"
+                  class="btn btn-primary"
+                >
+                  View
+                </a>
+
+                <a
+                  th:href="@{/courses/edit/{id}(id=${course.id})}"
+                  class="btn btn-secondary"
+                >
+                  Edit
+                </a>
+
+                <a
+                  th:href="@{/courses/delete/{id}(id=${course.id})}"
+                  class="btn btn-danger"
+                >
+                  Delete
+                </a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
