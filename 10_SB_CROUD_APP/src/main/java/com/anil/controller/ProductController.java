@@ -4,6 +4,7 @@ package com.anil.controller;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.anil.entity.Product;
 import com.anil.service.ProductService;
 
+@CrossOrigin(origins = "http://localhost:5173/", 
+  methods = {
+	  org.springframework.web.bind.annotation.RequestMethod.GET,
+		  org.springframework.web.bind.annotation.RequestMethod.POST,
+		  org.springframework.web.bind.annotation.RequestMethod.PUT,
+		  org.springframework.web.bind.annotation.RequestMethod.DELETE,
+		  
+  }
+)
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
