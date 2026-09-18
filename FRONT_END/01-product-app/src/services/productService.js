@@ -11,7 +11,7 @@ export const getProductById = (id) => {
 };
 
 export const createProduct = (product) => {
-  return axios.post(API_URL, product);
+  return axios.post(`${API_URL}/`, product);
 };
 
 export const updateProduct = (id, product) => {
