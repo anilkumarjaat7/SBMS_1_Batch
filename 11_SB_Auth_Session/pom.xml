@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.soft</groupId>
-	<artifactId>10_SB_CROUD_APP</artifactId>
+	<artifactId>11_SB_Auth_Session</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>10_SB_CROUD_APP</name>
+	<name>11_SB_Auth_Session</name>
 	<description/>
 	<url/>
 	<licenses>
@@ -42,7 +42,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webmvc</artifactId>
 		</dependency>
-		
 			<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
